@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 const environment = {
     env: process.env.NODE_ENV || "development",
