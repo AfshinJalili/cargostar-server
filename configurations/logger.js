@@ -1,6 +1,8 @@
 "use strict";
 
 import winston from 'winston';
+import environment from "./environment.js";
+
 const { createLogger, format, transports } = winston;
 const logger = createLogger({
     level: 'info',
@@ -12,15 +14,15 @@ const logger = createLogger({
         format.splat(),
         format.json()
     ),
-    defaultMeta: { service: 'Car-Gostar' },
+    defaultMeta: { service: 'cargostar' },
     transports: [
 
-        new transports.File({ filename: 'error.log', level: 'error' }),
-        new transports.File({ filename: 'combined.log' })
+        new transports.File({ filename: './logs/error.log', level: 'error' }),
+        new transports.File({ filename: './logs/combined.log' })
     ]
 });
 
-if (process.env.NODE_ENV !== 'production') {
+if (environment.env !== 'production') {
     logger.add(new transports.Console({
         format: format.combine(
             format.colorize(),

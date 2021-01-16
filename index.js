@@ -1,9 +1,10 @@
 "use strict";
 
-import app from "./initials/app.js";
-import logger from "./initials/logger.js";
+import app from "./configurations/app.js";
+import logger from "./configurations/logger.js";
+import environment from "./configurations/environment.js";
 
 
-const port = 3000;
 
-app.listen(port, () => logger.info(`server listening on port: ${port}`));
+
+app.listen(environment.port, () => logger.info(`server listening on port: ${environment.port}`));
