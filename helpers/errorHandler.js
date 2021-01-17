@@ -2,7 +2,7 @@
 
 import logger from "../configurations/logger.js";
 
-export function registerError() {
+export function registerErrorListener() {
     process.on("uncaughtException", onError);
 
     process.on("unhandledRejection", onError);

@@ -1,6 +1,6 @@
 "use strict";
 
-export default async function tryCatch(handlerFunc) {
+export async function tryCatch(handlerFunc) {
     return function(req, res, next) {
         try {
             handlerFunc(req, res);
